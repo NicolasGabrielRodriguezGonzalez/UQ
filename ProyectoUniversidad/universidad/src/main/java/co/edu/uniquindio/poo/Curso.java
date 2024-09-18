@@ -25,7 +25,6 @@ public class Curso {
     
     
     public void agregarEstudiante(Estudiante estudiante){//Agregar la clase.
-        estudiantes.add(estudiante);
         if (validarNumeroIdentificacion(estudiante.getNumeroIdentificacion())) {
           Estudiante.mostrarMensaje("El estudiante ya esta creado");
         }else{

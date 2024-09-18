@@ -50,8 +50,7 @@ public class Gimnasio {
 
     @Override
     public String toString() {
-        return "Gimnasio [nombre=" + nombre + ", fechaInscripcion=" + fechaInscripcion + ", miembros=" + miembros
-                + ", entrenadores=" + entrenadores + "]";
+        return "El gimnasio tiene como nombre " + nombre + ", se inicia la fecha de Inscripcion el " + fechaInscripcion + ", y los miembros son: \n" + miembros+" los entrenadores son: \n"+entrenadores;
     }
     
     public void agregarMiembro (Miembro miembro){
@@ -64,14 +63,91 @@ public class Gimnasio {
     public static void mostrarMensaje (String mensaje){
         System.out.println(mensaje);
     }
-    
+    //Imprimir nombres de los miembros en orden inverso.
     public void imprimirNombresInvertidos (){
-        for (int i = miembros.size(); i>0; i --){//Cuando se aumenta es menor (i--) es para que disminuya.
+        for (int i = miembros.size()-1; i>=0; i --){//Cuando se aumenta es menor (i--) es para que disminuya.
             Miembro miembro = miembros.get(i);
             mostrarMensaje(miembro.getNombre());
 
         }
     }
+    //Obtener todos los miembros con una edad menor a 18 años.
+    public LinkedList<Miembro> ObtenerMiembrosMenoresEdad() {
+        LinkedList<Miembro> menores = new LinkedList<>();
+        for (Miembro miembro : miembros) {
+            if (miembro.getEdad() < 18) {
+                menores.add(miembro);
+            }
+        }
+        return menores;
+    }
+    //Calcular el promedio de las edades de los miembros. 
+    public double calcularPromedioEdades(){
+        int sumaEdades = 0;
+        int cantidadMiembros = miembros.size();
+        for (Miembro miembro:miembros){
+            sumaEdades += miembro.getEdad();
+        }
+        double promedio = 0.0;
+        if (cantidadMiembros > 0){
+                promedio = sumaEdades/cantidadMiembros;
+        }
+        return promedio;
+        
+    }
+    
+    //Eliminar miembros que contengan en el nombre al menos 3 vocales o más.
+    //1) Metodo: Identificación de vocales:
+    public boolean validarVocal (char letra){
+        return letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra =='u';
+    }
+    //2) Metodo: Contar vocales:
+    public int contarVocales (String palabra){
+        int contadorVocales = 0;
+        for (int i = 0; i< palabra.length(); i++){
+            char letra = palabra.charAt(i);
+            if(validarVocal(letra)){
+                contadorVocales ++;
+            }
+        }
+        return contadorVocales;
+    }
+    //3) Metodo: Eliminar a los miembros que cumplen la condición:
+    public void eliminarMiembrosCon3Vocales (){
+        for (int i = 0; i<miembros.size();i++){
+            Miembro miembro = miembros.get(i);
+            String nombre = miembro.getNombre();
+            if (contarVocales(nombre)>= 3){
+                miembros.remove(i);
+            i--;
+            }
+        }
+    }
+
+    public int obtenerEdadMasRepetida() {
+        int edadMasRepetida = miembros.get(0).getEdad();
+        int maxFrecuencia = 0;
+
+        for (Miembro miembro1 : miembros) {
+            int edad = miembro1.getEdad();
+            int frecuencia = 0;
+
+            for (Miembro miembro2 : miembros) {
+                if (miembro2.getEdad() == edad) {
+                    frecuencia++;
+                }
+            }
+
+            if (frecuencia > maxFrecuencia) {
+                maxFrecuencia = frecuencia;
+                edadMasRepetida = edad;
+            }
+        }
+
+        return edadMasRepetida;
+    }
+    
+    
     /*
      * LinkedList<Miembro> listsMenores
      * 

@@ -4,14 +4,22 @@ public class Miembro {
     private String nombre;
     private int edad;
     private String genero;
+    private String cedula;
     private TipoMembresia tipoMembresia;
-    private Entrenador entrenador;
 
-    public Miembro(String nombre, int edad, String genero, TipoMembresia tipoMembresia, Entrenador entrenador){
+    public Miembro(String nombre, int edad, String genero,String cedula, TipoMembresia tipoMembresia){
         this.nombre=nombre;
         this.edad=edad;
         this.genero=genero;
+        this.cedula=cedula;
         this.tipoMembresia=tipoMembresia;//Relacion no atributo.
+        assert ! nombre.isBlank();
+        assert edad> 0;
+        assert ! genero.isBlank();
+        assert ! cedula.isBlank();
+        
+
+        
     }
 
     public String getNombre() {
@@ -20,14 +28,6 @@ public class Miembro {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
-    }
-
-    public Entrenador getEntrenador() {
-        return entrenador;
-    }
-
-    public void setEntrenador(Entrenador entrenador) {
-        this.entrenador = entrenador;
     }
 
     public int getEdad() {
@@ -46,12 +46,6 @@ public class Miembro {
         this.genero = genero;
     }
 
-    @Override
-    public String toString() {
-        return "Miembro [nombre=" + nombre + ", edad=" + edad + ", genero=" + genero + ", tipoMembresia="
-                + tipoMembresia + ", entrenador=" + entrenador + "]";
-    }
-
     public TipoMembresia getTipoMembresia() {
         return tipoMembresia;
     }
@@ -59,6 +53,18 @@ public class Miembro {
     public void setTipoMembresia(TipoMembresia tipoMembresia) {
         this.tipoMembresia = tipoMembresia;
     }
-    
-    
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    @Override
+    public String toString() {
+        return nombre + ", edad=" + edad + ", genero=" + genero + ", cedula=" + cedula
+                + ", membresia=" + tipoMembresia + "\n\n";
+    }
 }

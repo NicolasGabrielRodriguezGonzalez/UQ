@@ -54,7 +54,7 @@ public class Entrenador {
         return "Entrenador [nombre=" + nombre + ", especialidad=" + especialidad + ", telefono=" + telefono
                 + ", correo=" + correo + "]";
     }
-    public void agregarMiembro (Miembro miembro){
+    public void agregarMiembroAEntrenador (Miembro miembro){
         listaMiembros.add(miembro);
     }
     
