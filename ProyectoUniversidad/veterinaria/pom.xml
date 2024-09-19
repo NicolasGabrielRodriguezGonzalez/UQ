@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -12,29 +11,55 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>17</maven.compiler.source>
     <maven.compiler.target>17</maven.compiler.target>
+    <junit.jupiter.version>5.10.0</junit.jupiter.version>
   </properties>
 
   <dependencies>
+    <!-- JUnit Jupiter API for writing tests -->
     <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.10.0</version>
-        <scope>test</scope>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- JUnit Jupiter Engine for running tests -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.jupiter.version}</version>
+      <scope>test</scope>
     </dependency>
   </dependencies>
 
   <build>
-    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+    <pluginManagement>
       <plugins>
-        <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+        <!-- Compiler plugin for Java 17 -->
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>3.11.0</version>
+          <configuration>
+            <source>${maven.compiler.source}</source>
+            <target>${maven.compiler.target}</target>
+          </configuration>
         </plugin>
+
+        <!-- Surefire plugin for running tests -->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.1.2</version>
+          <configuration>
+            <includes>
+              <include>**/*Test.java</include>
+            </includes>
+            <systemPropertyVariables>
+              <junit.jupiter.version>${junit.jupiter.version}</junit.jupiter.version>
+            </systemPropertyVariables>
+          </configuration>
         </plugin>
+
+        <!-- Jar plugin for packaging -->
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
