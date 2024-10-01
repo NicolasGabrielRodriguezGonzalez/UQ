@@ -146,16 +146,49 @@ public class Gimnasio {
 
         return edadMasRepetida;
     }
-    
-    
-    /*
-     * LinkedList<Miembro> listsMenores
-     * 
-     */
-    
+    // contar la cantidad de miembros con menbresia anual y mayores de edad
+    public int contarCantidadMiembrosMembresiaAnualMaYoresEdad() {
+        int cantidadMiembros = 0;
+        for (Miembro miembro : miembros) {
+            if (miembro.getTipoMembresia() == TipoMembresia.ANUAL && miembro.getEdad() >= 18) {
+                cantidadMiembros++;
+            }
+        }
+        return cantidadMiembros;
+    }
+    // Lista de entrenadores cuya suma de teléfono es igual a 30
+    public LinkedList<Entrenador> obtenerEntrenadoresSumaTelefonoIgual30() {
+        LinkedList<Entrenador> listaEntrenadoresTelefono = new LinkedList<>();
+        for (Entrenador entrenador : entrenadores) {
+            int telefonoEntrenador = entrenador.getTelefono();
+            int sumaTelefono = 0;
+        
+            // Calcular la suma de los dígitos del teléfono
+            for (int i = telefonoEntrenador; i > 0; i /= 10) {
+                sumaTelefono += i % 10;
+            }
+            // Si la suma es igual a 30, añadir el entrenador a la lista
+            if (sumaTelefono == 30) {
+                listaEntrenadoresTelefono.add(entrenador);
+            }
+        }
+        return listaEntrenadoresTelefono;
+    }
 
+   
+    // Método para invertir nombres de miembros menores de edad
+    public void invertirNombresMiembros() {
+        for (Miembro miembro : miembros) {
+            if (miembro.getEdad() < 18) {
+                String nombreMiembro = miembro.getNombre();
+                String nombreInvertido = "";
 
-
-
-    
+                // Invertir el nombre del miembro
+                for (int i = nombreMiembro.length() - 1; i >= 0; i--) {
+                    nombreInvertido += nombreMiembro.charAt(i);
+                }
+                miembro.setNombre(nombreInvertido);
+            }
+        }
+    }
 }

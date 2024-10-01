@@ -3,63 +3,47 @@ package co.edu.uniquindio.poo;
 import java.time.LocalDate;
 import java.util.LinkedList;
 
-/**
- * Hello world!
- *
- */
 public class App {
     public static void main(String[] args) {
-        //Creación de gimnasio.
-        Gimnasio gimnasio = new Gimnasio("Smartfit ", LocalDate.now());
+        // Creación de gimnasio.
+        Gimnasio gimnasio = new Gimnasio("Smartfit", LocalDate.now());
 
-        //Creacion de entrenador.
-        Entrenador entrenador = new Entrenador("Juan", "aerobicos", "123", "juan@gmail.com");
+        // Creación de entrenador.
+        Entrenador entrenador = new Entrenador("Juan", "aerobicos", 123456789, "juan@gmail.com");
+        Entrenador entrenador2 = new Entrenador("Sofia", "pesas", 987654321, "sofia@gmail.com");
 
-        //Creación miembros.
-        Miembro miembro1 = new Miembro("JUliana", 20, "femenino", "111111", TipoMembresia.ANUAL);
-        Miembro miembro2 = new Miembro ("Nicolas", 17, "masculino", "1138274319", TipoMembresia.MENSUAL);
+        // Creación de miembros.
+        Miembro miembro1 = new Miembro("Juliana", 20, "femenina", TipoMembresia.ANUAL, entrenador);
+        Miembro miembro2 = new Miembro("Carlos", 25, "masculino", TipoMembresia.MENSUAL, entrenador2);
+        Miembro miembro3 = new Miembro("Ana", 18, "femenina", TipoMembresia.ANUAL, entrenador);
+        Miembro miembro4 = new Miembro("Luis", 35, "masculino", TipoMembresia.TRIMESTRAL, entrenador2);
+        Miembro miembro5 = new Miembro("Diana", 29, "femenina", TipoMembresia.MENSUAL, entrenador);
 
-        //Agregar entrenador al gimnasio.
+        // Agregar entrenadores y miembros al gimnasio.
         gimnasio.agregarEntrenador(entrenador);
-        //Agregar miembros al gimnasio.
+        gimnasio.agregarEntrenador(entrenador2);
         gimnasio.agregarMiembro(miembro1);
         gimnasio.agregarMiembro(miembro2);
-        //Agregar miembro a entrenador.
-        entrenador.agregarMiembroAEntrenador (miembro1);
-        
-        //Se muestra el mensaje.
-        Gimnasio.mostrarMensaje(gimnasio.toString());
+        gimnasio.agregarMiembro(miembro3);
+        gimnasio.agregarMiembro(miembro4);
+        gimnasio.agregarMiembro(miembro5);
 
-        //Devolver lista con nombres invertidos.
-        Gimnasio.mostrarMensaje("Lista nombres invertidos: ");
+        // Imprimir nombres invertidos.
         gimnasio.imprimirNombresInvertidos();
 
-        //Obtener miembros menores a 18 años:
-        Gimnasio.mostrarMensaje("Los miembros con una edad menor a 18 años son: ");
-        LinkedList<Miembro> menores = gimnasio.ObtenerMiembrosMenoresEdad();
-        for (Miembro miembro: menores){
-            Gimnasio.mostrarMensaje(miembro.toString());
+        // Obtener y mostrar miembros menores de edad.
+        LinkedList<Miembro> miembrosMenores = gimnasio.obtenerMiembrosMenores();
+        System.out.println("Miembros menores de 18 años:");
+        for (Miembro miembro : miembrosMenores) {
+            System.out.println(miembro.getNombre());
         }
 
-        //Calcular el promedio de las edades:
-        double promedio = gimnasio.calcularPromedioEdades();
-        Gimnasio.mostrarMensaje("El promedio de las edades es: " + promedio);
+        // Calcular y mostrar el promedio de edades.
+        double promedioEdades = gimnasio.calcularPromedioEdades();
+        System.out.println("El promedio de edades es: " + promedioEdades);
 
-        //Obtener la edad que mas se repite:
-        int edadMasRepetida = gimnasio.obtenerEdadMasRepetida();
-        Gimnasio.mostrarMensaje("La edad que más se repite es: " + edadMasRepetida);
-
-        //Eliminar miembros con al menos 3 vocales:
-        gimnasio.eliminarMiembrosCon3Vocales();
-        // Mostrar los miembros restantes
-        Gimnasio.mostrarMensaje("Miembros restantes después de eliminar los nombres con 3 o más vocales:");
-        // Obtener la lista actualizada de miembros
-        LinkedList<Miembro> miembrosRestantes = gimnasio.getMiembros();
-
-        // Mostrar cada miembro restante
-        for (Miembro miembro : miembrosRestantes) {
-            Gimnasio.mostrarMensaje(miembro.toString());
-        }
-        Gimnasio.mostrarMensaje(gimnasio.toString());
+        // Obtener y mostrar la edad más común.
+        int edadMasComun = gimnasio.obtenerEdadMasComun();
+        System.out.println("La edad más común es: " + edadMasComun);
     }
 }
