@@ -8,7 +8,6 @@
 package co.edu.uniquindio.poo;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.util.logging.Logger;
 import org.junit.jupiter.api.Test;
 
@@ -23,11 +22,15 @@ public class AppTest {
      */
     @Test
     public void datosVacios() {
-        LOG.info("Inciando test de datos vaios");
-        assertThrows(Throwable.class, () -> new Miembro(" ", 0, " ", " ", TipoMembresia.ANUAL),
-        "Se esperaba una IllegalArgumentException para datos vacíos");        
-        LOG.info("Finalizando test datos vacios");
+        LOG.info("Iniciando test de datos vacíos");
 
+        // Crear un entrenador para pasar como argumento al constructor de Miembro.
+        Entrenador entrenador = new Entrenador("EntrenadorTest", "test", 123456789, "test@example.com");
+
+        // Prueba con todos los datos vacíos y el entrenador creado.
+        assertThrows(Throwable.class, () -> new Miembro(" ", 0, " ", " ", TipoMembresia.ANUAL, entrenador),
+            "Se esperaba una IllegalArgumentException para datos vacíos");
+        
+        LOG.info("Finalizando test datos vacíos");
     }
-
 }

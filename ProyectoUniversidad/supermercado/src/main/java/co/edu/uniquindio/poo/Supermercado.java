@@ -19,6 +19,38 @@ public class Supermercado {
         clientes.add(cliente);
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public LinkedList<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(LinkedList<Cliente> clientes) {
+        this.clientes = clientes;
+    }
+
+    public LinkedList<Empleado> getEmpleados() {
+        return empleados;
+    }
+
+    public void setEmpleados(LinkedList<Empleado> empleados) {
+        this.empleados = empleados;
+    }
+
+    public LinkedList<Producto> getProductos() {
+        return productos;
+    }
+
+    public void setProductos(LinkedList<Producto> productos) {
+        this.productos = productos;
+    }
+
     public void agregarEmpleado(Empleado empleado) {
         empleados.add(empleado);
     }

@@ -8,16 +8,16 @@ public class App {
         // Creación de gimnasio.
         Gimnasio gimnasio = new Gimnasio("Smartfit", LocalDate.now());
 
-        // Creación de entrenador.
+        // Creación de entrenadores.
         Entrenador entrenador = new Entrenador("Juan", "aerobicos", 123456789, "juan@gmail.com");
         Entrenador entrenador2 = new Entrenador("Sofia", "pesas", 987654321, "sofia@gmail.com");
 
-        // Creación de miembros.
-        Miembro miembro1 = new Miembro("Juliana", 20, "femenina", TipoMembresia.ANUAL, entrenador);
-        Miembro miembro2 = new Miembro("Carlos", 25, "masculino", TipoMembresia.MENSUAL, entrenador2);
-        Miembro miembro3 = new Miembro("Ana", 18, "femenina", TipoMembresia.ANUAL, entrenador);
-        Miembro miembro4 = new Miembro("Luis", 35, "masculino", TipoMembresia.TRIMESTRAL, entrenador2);
-        Miembro miembro5 = new Miembro("Diana", 29, "femenina", TipoMembresia.MENSUAL, entrenador);
+        // Creación de miembros con la cédula como parámetro adicional.
+        Miembro miembro1 = new Miembro("Juliana", 20, "femenina", "1001", TipoMembresia.ANUAL, entrenador);
+        Miembro miembro2 = new Miembro("Carlos", 25, "masculino", "1002", TipoMembresia.MENSUAL, entrenador2);
+        Miembro miembro3 = new Miembro("Ana", 18, "femenina", "1003", TipoMembresia.ANUAL, entrenador);
+        Miembro miembro4 = new Miembro("Luis", 35, "masculino", "1004", TipoMembresia.TRIMESTRAL, entrenador2);
+        Miembro miembro5 = new Miembro("Diana", 29, "femenina", "1005", TipoMembresia.MENSUAL, entrenador);
 
         // Agregar entrenadores y miembros al gimnasio.
         gimnasio.agregarEntrenador(entrenador);
@@ -32,7 +32,7 @@ public class App {
         gimnasio.imprimirNombresInvertidos();
 
         // Obtener y mostrar miembros menores de edad.
-        LinkedList<Miembro> miembrosMenores = gimnasio.obtenerMiembrosMenores();
+        LinkedList<Miembro> miembrosMenores = gimnasio.ObtenerMiembrosMenoresEdad();
         System.out.println("Miembros menores de 18 años:");
         for (Miembro miembro : miembrosMenores) {
             System.out.println(miembro.getNombre());
@@ -43,7 +43,7 @@ public class App {
         System.out.println("El promedio de edades es: " + promedioEdades);
 
         // Obtener y mostrar la edad más común.
-        int edadMasComun = gimnasio.obtenerEdadMasComun();
+        int edadMasComun = gimnasio.obtenerEdadMasRepetida();
         System.out.println("La edad más común es: " + edadMasComun);
     }
 }

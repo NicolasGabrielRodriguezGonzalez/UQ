@@ -53,7 +53,7 @@ public class Factura {
 
     @Override
     public String toString() {
-        return "\n\n\n-----------------Factura---------------\nId: " + id + "\nTotal: " + total + "\n\n--------------Detalle Factura------------\n" + detalleFacturas + "\n";
+        return "\n\n\nFactura\nId: " + id + "\nTotal: " + total + "\n\nDetalle Factura\n" + detalleFacturas + "\n";
     }
 
     public double calcularTotal(){

@@ -2,51 +2,45 @@ package co.edu.uniquindio.poo;
 
 public class Persona {
     public String nombre;
-    public String apellido;
     public String cedula;
     public String telefono;
-
-    public Persona(String nombre, String apellido, String cedula, String telefono) {
+    public String email;
+    public Persona(String nombre, String cedula, String telefono, String email) {
         this.nombre = nombre;
-        this.apellido = apellido;
         this.cedula = cedula;
         this.telefono = telefono;
+        this.email = email;
     }
-
     public String getNombre() {
         return nombre;
     }
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
     public String getCedula() {
         return cedula;
     }
-
     public void setCedula(String cedula) {
         this.cedula = cedula;
     }
-
     public String getTelefono() {
         return telefono;
     }
-
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     @Override
     public String toString() {
-        return "Persona [Nombre=" + nombre + ", Apellido=" + apellido + ", Cédula=" + cedula + ", Teléfono=" + telefono + "]";
+        return "Persona [nombre=" + nombre + ", cedula=" + cedula + ", telefono=" + telefono + ", email=" + email + "]";
     }
+    
+    
+
+    
 }
