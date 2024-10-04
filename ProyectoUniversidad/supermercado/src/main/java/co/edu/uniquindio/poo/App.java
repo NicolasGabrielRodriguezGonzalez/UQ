@@ -49,6 +49,22 @@ public class App {
         //mostrar mensaje
         Supermercado.mostrarMensaje(supermercado.toString());
 
+        
+
+        // Calcular y mostrar el subtotal de los detalles
+        double totalDetalle = detalleFactura1.calcularSubtotal(producto1);
+        double totalDetalle2 = detalleFactura2.calcularSubtotal(producto2);
+        Supermercado.mostrarMensaje("El subtotal del primer detalle es: " + totalDetalle);
+        Supermercado.mostrarMensaje("El subtotal del segundo detalle es: " + totalDetalle2);
+        
+        // Calcular el total de la factura sumando todos los detalles
+        double totalFactura = factura.calcularTotal();
+        Supermercado.mostrarMensaje("El total de la factura es: " + totalFactura);
+        Supermercado.mostrarMensaje(factura.toString());
+
+        
+
+        Supermercado.mostrarMensaje("El stock disponible del producto "+ producto1.getNombre()+" es "+producto1.getStock());
 
 
 

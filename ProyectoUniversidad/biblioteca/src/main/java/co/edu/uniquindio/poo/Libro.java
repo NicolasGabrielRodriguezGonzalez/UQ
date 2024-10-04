@@ -18,7 +18,8 @@ public class Libro {
         this.titulo = titulo;
         this.editorial = editorial;
         this.fecha = fecha;
-        this.unidadesDisponibles = unidadesDisponibles;
+        
+        setUnidadesDisponibles(unidadesDisponibles); // Utilizar el setter para la validación
     }
     public String getCodigo() {
         return codigo;
@@ -60,6 +61,9 @@ public class Libro {
         return unidadesDisponibles;
     }
     public void setUnidadesDisponibles(int unidadesDisponibles) {
+        if (unidadesDisponibles < 0) {
+            throw new IllegalArgumentException("Las unidades disponibles no pueden ser negativas");
+        }
         this.unidadesDisponibles = unidadesDisponibles;
     }
     @Override

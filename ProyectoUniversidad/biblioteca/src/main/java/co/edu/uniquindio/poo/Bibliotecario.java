@@ -3,9 +3,16 @@ package co.edu.uniquindio.poo;
 public class Bibliotecario extends Persona {
     private double salario;
 
+
     public Bibliotecario(String nombre, String cedula, String telefono, String email, double salario) {
         super(nombre, cedula, telefono, email);
         this.salario = salario;
+        assert !nombre.isBlank();
+        assert !cedula.isBlank();
+        assert !telefono.isBlank();
+        assert !email.isBlank();
+        assert salario >= 1300000;
+        assert email.contains("@");
     }
 
     public double getSalario() {

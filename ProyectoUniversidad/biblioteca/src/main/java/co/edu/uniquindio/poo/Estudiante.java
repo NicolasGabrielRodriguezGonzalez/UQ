@@ -11,8 +11,9 @@ public class Estudiante extends Persona {
 
     @Override
     public String toString() {
-        return "Estudiante" + nombre + "cedula" + cedula + "telefono" + telefono + "email" + email;
+        return "Estudiante: " + nombre + ", Cedula: " + cedula + ", Telefono: " + telefono + ", Email: " + email;
     }
+
     
 
 

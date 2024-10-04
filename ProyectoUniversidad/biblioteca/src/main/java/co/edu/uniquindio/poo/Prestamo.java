@@ -13,13 +13,18 @@ public class Prestamo {
         this.fechaDePrestamo = fechaDePrestamo;
         this.fechaDeDevolucion = fechaDeDevolucion;
         detallePrestamos = new LinkedList<>();
+        assert detallePrestamos != null;
     }
     public LinkedList<DetallePrestamo> getDetallePrestamos() {
         return detallePrestamos;
     }
     public void setDetallePrestamos(LinkedList<DetallePrestamo> detallePrestamos) {
+        if (detallePrestamos == null) {
+            throw new IllegalArgumentException("La lista de detalles no puede ser nula");
+        }
         this.detallePrestamos = detallePrestamos;
     }
+
     public String getId() {
         return id;
     }
@@ -43,7 +48,10 @@ public class Prestamo {
         return "Prestamo [id=" + id + ", fechaDePrestamo=" + fechaDePrestamo + ", fechaDeDevolucion="
                 + fechaDeDevolucion + ", detallePrestamos=" + detallePrestamos + "]";
     }
-    public void agregarDetallePrestamo (DetallePrestamo detallePrestamo){
+    public void agregarDetallePrestamo(DetallePrestamo detallePrestamo) {
+        if (detallePrestamos.size() >= 5) {
+            throw new IllegalArgumentException("No se pueden agregar más de cinco detalles");
+        }
         detallePrestamos.add(detallePrestamo);
     }
     
