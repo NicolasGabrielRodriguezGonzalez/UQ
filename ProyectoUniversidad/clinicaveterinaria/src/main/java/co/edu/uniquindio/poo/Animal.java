@@ -9,6 +9,7 @@ public class Animal {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
+        this.tipoAnimal = tipoAnimal;
     }
     public String getNombre() {
         return nombre;
