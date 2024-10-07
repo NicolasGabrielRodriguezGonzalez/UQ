@@ -14,8 +14,7 @@ public class App {
         //Creacion del bibliotecario.
         Bibliotecario bibliotecario = new Bibliotecario("Nicolas Gabriel Rodriguez", "10001", "3012155790", "ng@gmail.com", 120);
 
-        //Creacion del Estudiante.
-        Estudiante estudiante = new Estudiante("Santiago Galeano", "10002", "3201786326", "elsanti@gmail.com");
+        
 
         //Creacion del Libro.
         Libro libro1 = new Libro("10003", "000000000", "Vargas Lloza", "Satanas", "Norma", LocalDate.now(), 10);
@@ -25,6 +24,8 @@ public class App {
 
         //Agregar bibliotecario a biblioteca.
         biblioteca.agregarBibliotecario(bibliotecario);
+        //Creacion del Estudiante.
+        Estudiante estudiante = new Estudiante("Santiago Galeano", "10002", "3201786326", "elsanti@gmail.com",prestamo);
         //Agregar estudiante a biblioteca.
         biblioteca.agregarEstudiante(estudiante);
         //agregar libro a biblioteca.
