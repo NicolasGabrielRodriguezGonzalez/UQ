@@ -6,6 +6,10 @@ public class Canario extends Animal {
     public Canario(String nombre, int edad, double peso, TipoAnimal tipoAnimal, Dueño dueño) {
         super(nombre, edad, peso, tipoAnimal);
         this.dueño = dueño;
+        assert edad <= 10;
+        if (tipoAnimal != TipoAnimal.DOMESTICO) {
+            throw new IllegalArgumentException("El canario debe ser de tipo DOMESTICO");
+        }
     }
 
     public Dueño getDueño() {

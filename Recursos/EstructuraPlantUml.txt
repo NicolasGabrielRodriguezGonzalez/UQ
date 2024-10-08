@@ -1,0 +1,121 @@
+@startuml
+skinparam classMargin 20  // Ajusta el margen entre clases
+
+
+class Animal {
+    - String nombre
+    - int edad
+    - double peso
+    + Animal(String nombre, int edad, double peso)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + int getEdad()
+    + void setEdad(int edad)
+    + double getPeso()
+    + void setPeso(double peso)
+}
+
+class Perro {
+    - String raza
+    - Dueño dueño
+    + Perro(String nombre, int edad, double peso, TipoAnimal tipoAnimal, String raza, Dueño dueño)
+    + String getRaza()
+    + void setRaza(String raza)
+    + Dueño getDueño()
+    + void setDueño(Dueño dueño)
+}
+
+class Gato {
+    - String colorPelaje
+    - Dueño dueño
+    + Gato(String nombre, int edad, double peso, TipoAnimal tipoAnimal, String colorPelaje, Dueño dueño)
+    + String getColorPelaje()
+    + void setColorPelaje(String colorPelaje)
+    + Dueño getDueño()
+    + void setDueño(Dueño dueño)
+}
+
+class Canario {
+    - Dueño dueño
+    + Canario(String nombre, int edad, double peso, TipoAnimal tipoAnimal, Dueño dueño)
+    + Dueño getDueño()
+    + void setDueño(Dueño dueño)
+}
+
+class Leon {
+    - double diametroMelena
+    - HabitatNatural habitatNatural
+    + Leon(String nombre, int edad, double peso, TipoAnimal tipoAnimal, double diametroMelena, HabitatNatural habitatNatural)
+    + double getDiametroMelena()
+    + void setDiametroMelena(double diametroMelena)
+    + HabitatNatural getHabitatNatural()
+    + void setHabitatNatural(HabitatNatural habitatNatural)
+}
+
+class Aguila {
+    - double envergaduraAlas
+    - HabitatNatural habitatNatural
+    + Aguila(String nombre, int edad, double peso, TipoAnimal tipoAnimal, double envergaduraAlas, HabitatNatural habitatNatural)
+    + double getEnvergaduraAlas()
+    + void setEnvergaduraAlas(double envergaduraAlas)
+    + HabitatNatural getHabitatNatural()
+    + void setHabitatNatural(HabitatNatural habitatNatural)
+}
+
+class Veterinaria {
+    - String nombre
+    - List<Perro> perros
+    - List<Gato> gatos
+    - List<Leon> leones
+    - List<Aguila> aguilas
+    - List<Canario> canarios
+    + Veterinaria(String nombre)
+    + void agregarPerro(Perro perro)
+    + void agregarGato(Gato gato)
+    + void agregarLeon(Leon leon)
+    + void agregarAguila(Aguila aguila)
+    + void agregarCanario(Canario canario)
+}
+
+class Dueño {
+    - String nombre
+    - String cedula
+    - String direccion
+    + Dueño(String nombre, String cedula, String direccion)
+    + String getNombre()
+    + void setNombre(String nombre)
+    + String getCedula()
+    + void setCedula(String cedula)
+    + String getDireccion()
+    + void setDireccion(String direccion)
+}
+
+enum TipoAnimal {
+    SALVAJE,
+    DOMESTICO
+}
+
+class HabitatNatural {
+    - String nombre
+    + HabitatNatural(String nombre)
+    + String getNombre()
+    + void setNombre(String nombre)
+}
+TipoAnimal "1"--"1" Animal
+Animal <|-- Perro
+Animal <|-- Gato
+Animal <|-- Leon
+Animal <|-- Aguila
+Animal <|-- Canario
+Dueño "1" -- "1" Gato
+Dueño "1" -- "1" Perro
+Dueño "1" -- "1" Canario
+Leon "1" -- "1" HabitatNatural
+Aguila "1" -- "1" HabitatNatural
+Veterinaria "1" *-- "0..*" Perro : contiene
+Veterinaria "1" *-- "0..*" Gato : contiene
+Veterinaria "1" *-- "0..*" Leon : contiene
+Veterinaria "1" *-- "0..*" Aguila : contiene
+Veterinaria "1" *-- "0..*" Canario : contiene
+
+@enduml

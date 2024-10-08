@@ -7,6 +7,11 @@ public class Leon extends Animal{
         super(nombre, edad, peso, tipoAnimal);
         this.diametroMelena = diametroMelena;
         this.habitatNatural = habitatNatural;
+         if (habitatNatural == null) {
+            throw new IllegalArgumentException("El león debe tener un hábitat natural");
+        }
+
+        this.habitatNatural = habitatNatural;
     }
     public double getDiametroMelena() {
         return diametroMelena;

@@ -8,6 +8,7 @@ public class Aguila extends Animal{
         super(nombre, edad, peso, tipoAnimal);
         this.envergaduraAlas = envergaduraAlas;
         this.habitatNatural = habitatNatural;
+        assert envergaduraAlas > 0;
     }
     public double getEnvergaduraAlas() {
         return envergaduraAlas;
@@ -26,6 +27,7 @@ public class Aguila extends Animal{
         return "Aguila [nombre=" + nombre + ", envergaduraAlas=" + envergaduraAlas + ", edad=" + edad + ", peso=" + peso
                 + ", habitatNatural=" + habitatNatural + ", tipoAnimal=" + tipoAnimal + "]";
     }
+    
     
     
     

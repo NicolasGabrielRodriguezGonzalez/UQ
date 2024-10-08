@@ -7,6 +7,10 @@ public class Gato extends Animal {
         super(nombre, edad, peso, tipoAnimal);
         this.colorPelaje = colorPelaje;
         this.dueño = dueño;
+         // Lanza una excepción si el dueño es null
+         if (dueño == null) {
+            throw new IllegalArgumentException("El gato debe tener un dueño");
+        }
     }
     public String getColorPelaje() {
         return colorPelaje;

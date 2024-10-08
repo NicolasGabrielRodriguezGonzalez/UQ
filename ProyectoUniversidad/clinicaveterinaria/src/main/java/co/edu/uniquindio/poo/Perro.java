@@ -6,6 +6,7 @@ public class Perro extends Animal {
         super(nombre, edad, peso, tipoAnimal);
         this.raza = raza;
         this.dueño = dueño;
+        if (peso < 0) throw new IllegalArgumentException("El peso no puede ser negativo.");
     }
     public String getRaza() {
         return raza;
