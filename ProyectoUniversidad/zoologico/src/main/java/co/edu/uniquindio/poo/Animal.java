@@ -39,7 +39,7 @@ public abstract class Animal {
         
     }
     //Metodo abstracto, no estatico, es decir, varia para cada una de las clases hijas.
-    public abstract void domir();
+    public abstract void dormir();
 
     
     public abstract void hacerSonido();

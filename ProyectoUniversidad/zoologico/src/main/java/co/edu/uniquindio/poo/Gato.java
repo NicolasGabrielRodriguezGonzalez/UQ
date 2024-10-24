@@ -11,7 +11,7 @@ public class Gato extends Animal {
     }
 
     @Override
-    public void domir() {
+    public void dormir() {
         Animal.mostrarMensaje("Gato durmiendo ZZZZ");
         // TODO Auto-generated method stub
         

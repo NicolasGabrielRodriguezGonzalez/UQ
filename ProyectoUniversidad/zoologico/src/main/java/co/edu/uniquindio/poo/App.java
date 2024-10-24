@@ -37,14 +37,14 @@ public class App {
         
     }
 
-    public static void mostrarMenu(Animal animal){
+    public static void mostrarMenu(Animal animal){          
         boolean continuarMenu = true;
         while (continuarMenu){
             int opciones = Animal.ingresarEntero("Indique una opción " + animal.getNombre()
             + "\n1.Dormir \n2.Hacer sonido \n3.Comer \n4.Volver al menu principal");
             switch (opciones) {
                 case 1:
-                    animal.domir();
+                    animal.dormir();
                     
                     break;
                 case 2:

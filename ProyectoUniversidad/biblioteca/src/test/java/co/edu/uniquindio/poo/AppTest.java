@@ -167,7 +167,7 @@ public class AppTest {
         Prestamo prestamo = new Prestamo("P001", LocalDate.now(), LocalDate.now().plusDays(5));
 
         // Agregar 5 detalles válidos
-        for (int j = 1; j <= 5; j++) {
+        for (int j = 1; j <= 5; j++) { 
             Libro libro = new Libro("C00" + j, "ISBN" + j, "Autor " + j, "Título " + j, "Editorial " + j, LocalDate.now(), 5);
             DetallePrestamo detalle = new DetallePrestamo(j, libro);
             prestamo.agregarDetallePrestamo(detalle);
