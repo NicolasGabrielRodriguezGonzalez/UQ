@@ -18,8 +18,10 @@ public class Cirujano extends PersonalApoyo {
     
     @Override
     public double calcularCostoConsulta() {
-        // TODO Auto-generated method stub
-        return 0;
+        double valorFijo= 100.000;
+        double operacion = valorFijo + (numeroIntervenciones * 50.000);
+
+        return operacion;
     }
 
     @Override

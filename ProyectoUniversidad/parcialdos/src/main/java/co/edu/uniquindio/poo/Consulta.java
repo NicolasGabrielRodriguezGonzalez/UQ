@@ -1,5 +1,5 @@
 package co.edu.uniquindio.poo;
-
+import java.util.LinkedList;
 import java.time.LocalDate;
 
 public class Consulta {
@@ -7,17 +7,27 @@ public class Consulta {
     private TipoConsulta tipoConsulta;
     private LocalDate fechaConsulta;
     private double costoTotal;
+    private LinkedList <Tratamiento> tratamientos;
     public Consulta(String codigo, TipoConsulta tipoConsulta, LocalDate fechaConsulta, double costoTotal) {
         this.codigo = codigo;
         this.tipoConsulta = tipoConsulta;
         this.fechaConsulta = fechaConsulta;
         this.costoTotal = costoTotal;
+        tratamientos = new LinkedList<>();
+        
     }
     public String getCodigo() {
         return codigo;
+    
     }
     public void setCodigo(String codigo) {
         this.codigo = codigo;
+    }
+    public LinkedList<Tratamiento> getTratamientos() {
+        return tratamientos;
+    }
+    public void setTratamientos(LinkedList<Tratamiento> tratamientos) {
+        this.tratamientos = tratamientos;
     }
     public TipoConsulta getTipoConsulta() {
         return tipoConsulta;
