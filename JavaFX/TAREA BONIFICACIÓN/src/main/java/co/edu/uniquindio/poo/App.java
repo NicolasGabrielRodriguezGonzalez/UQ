@@ -1,0 +1,35 @@
+package co.edu.uniquindio.poo;
+
+import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class App extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        try {
+            // Cargar la interfaz principal desde el archivo FXML
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/co/edu/uniquindio/poo/primary.fxml"));
+            Parent root = loader.load();
+            
+            // Configurar el escenario principal
+            primaryStage.setTitle("Sistema de Alquiler de Vehículos");
+            primaryStage.setScene(new Scene(root));
+            primaryStage.setResizable(false);
+
+            // Mostrar la ventana y centrarla en la pantalla usando Platform.runLater
+            primaryStage.show();
+            Platform.runLater(primaryStage::centerOnScreen);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
