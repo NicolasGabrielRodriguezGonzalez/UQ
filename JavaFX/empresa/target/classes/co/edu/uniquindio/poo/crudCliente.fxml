@@ -11,7 +11,7 @@
       <SplitPane dividerPositions="0.5159574468085106" orientation="VERTICAL" prefHeight="566.0" prefWidth="429.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="288.0" prefWidth="401.0">
-               <children>
+               <children>   
                   <Pane layoutX="34.0" layoutY="20.0" prefHeight="249.0" prefWidth="360.0" style="-fx-border-image-width: 1px;">
                      <effect>
                         <Blend />
