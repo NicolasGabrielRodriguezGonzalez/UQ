@@ -9,7 +9,7 @@ public class Estudiante extends Persona {
         this.email = email;
     }
 
-    @Override
+    @Overridex
     public String toString() {
         return "Estudiante: " + nombre + ", Cedula: " + cedula + ", Telefono: " + telefono + ", Email: " + email;
     }
