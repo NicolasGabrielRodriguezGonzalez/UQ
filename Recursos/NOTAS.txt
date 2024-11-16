@@ -1,0 +1,50 @@
+public class Compra {
+    private Vehiculo vehiculo;
+    private Cliente cliente;
+    private double montoTotal;
+
+    // Constructor
+    public Compra(Vehiculo vehiculo, Cliente cliente) {
+        this.vehiculo = vehiculo;
+        this.cliente = cliente;
+        this.montoTotal = vehiculo.precioBase;  // El monto total inicial puede ser el precio base
+    }
+
+    // Método que realiza la compra
+    public boolean realizarCompra() {
+        if (vehiculo.determinarRevisionTecnica()) {
+            // Si el vehículo ha pasado la revisión técnica, se puede comprar
+            System.out.println("Compra exitosa del vehículo " + vehiculo.marca + " " + vehiculo.modelo);
+            return true;
+        } else {
+            // Si no ha pasado la revisión técnica, la compra no se puede realizar
+            System.out.println("El vehículo no ha pasado la revisión técnica y no puede ser comprado.");
+            return false;
+        }
+    }
+
+    // Getter y Setter para los atributos
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public double getMontoTotal() {
+        return montoTotal;
+    }
+
+    public void setMontoTotal(double montoTotal) {
+        this.montoTotal = montoTotal;
+    }
+}
