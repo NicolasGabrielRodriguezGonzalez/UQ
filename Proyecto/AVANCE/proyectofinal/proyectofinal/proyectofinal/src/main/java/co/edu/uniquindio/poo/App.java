@@ -57,6 +57,63 @@ public class App {
     }
     
     private static void autenticarAdministrador(Administrador administrador) {
+    String[] opciones = {"Crear Cuenta", "Iniciar Sesión"};
+    int seleccion = JOptionPane.showOptionDialog(
+        null,
+        "Seleccione una opción",
+        "Administrador",
+        JOptionPane.DEFAULT_OPTION,
+        JOptionPane.INFORMATION_MESSAGE,
+        null,
+        opciones,
+        opciones[0]
+    );
+
+    if (seleccion == 0) { // Crear Cuenta
+        crearCuentaAdministrador(administrador);
+    } else if (seleccion == 1) { // Iniciar Sesión
+        iniciarSesionAdministrador(administrador);
+    }
+}
+
+private static void crearCuentaAdministrador(Administrador administrador) {
+    // Solicitar datos para crear la cuenta del administrador
+    String usuario = JOptionPane.showInputDialog("Ingrese el nombre de usuario del Administrador:");
+    String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña del Administrador:");
+
+    // Preguntas de seguridad predefinidas
+    String[] preguntas = {
+        "¿Cuál es el nombre de tu primera mascota?",
+        "¿Cuál es tu comida favorita?",
+        "¿En qué ciudad naciste?",
+        "¿Cuál es tu color favorito?",
+        "¿Cuál es el nombre de tu mejor amigo de la infancia?"
+    };
+
+    // Mostrar las opciones de preguntas de seguridad y permitir al usuario elegir una
+    String preguntaSeguridad = (String) JOptionPane.showInputDialog(
+        null,
+        "Seleccione una pregunta de seguridad:",
+        "Pregunta de Seguridad",
+        JOptionPane.QUESTION_MESSAGE,
+        null,
+        preguntas,
+        preguntas[0]
+    );
+
+    // Solicitar la respuesta a la pregunta seleccionada
+    String respuestaSeguridad = JOptionPane.showInputDialog("Ingrese la respuesta a la pregunta de seguridad:");
+
+    // Configurar los datos en el objeto Administrador
+    administrador.setUsuario(usuario);
+    administrador.setContraseña(contrasena);
+    administrador.setPreguntaSeguridad(preguntaSeguridad);
+    administrador.setRespuestaSeguridad(respuestaSeguridad);
+
+    JOptionPane.showMessageDialog(null, "Cuenta creada exitosamente.");
+}
+
+private static void iniciarSesionAdministrador(Administrador administrador) {
     // Solicitar el nombre de usuario y contraseña
     String usuario = JOptionPane.showInputDialog("Ingrese el nombre de usuario del Administrador:");
     String contrasena = JOptionPane.showInputDialog("Ingrese la contraseña del Administrador:");
@@ -72,6 +129,8 @@ public class App {
         autenticarSeguridadAdministrador(administrador);
     }
 }
+
+
 
 private static void autenticarSeguridadAdministrador(Administrador administrador) {
     // Solicitar la respuesta a la pregunta de seguridad
