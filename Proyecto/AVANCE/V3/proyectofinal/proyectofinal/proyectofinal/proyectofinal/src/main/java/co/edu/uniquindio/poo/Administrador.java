@@ -2,7 +2,7 @@ package co.edu.uniquindio.poo;
 
 import java.time.LocalDate;
 import java.util.LinkedList;
-    
+
 public class Administrador extends Persona {
     private String idAdministrador;
     private String usuario;
